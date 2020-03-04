@@ -29,7 +29,7 @@ public class Calculate {
             try {
                 first = Double.parseDouble(reader.readLine());
             } catch (Exception e) {
-                System.out.println("Error... may bee..    "+e);
+                System.out.println("Something goes wrong... Repeat, please...     "+e);
                 continue;
             }
             System.out.println("Enter a calculation operation..             (Help:  - + * / ^)");
@@ -41,8 +41,8 @@ public class Calculate {
             System.out.println("enter the second argument... ");
             try {
                 second = Double.parseDouble(reader.readLine());
-            } catch (IOException e) {
-                System.out.println("Error... may bee..    "+e);
+            } catch (Exception e) {
+                System.out.println("Something goes wrong... Repeat, please...     "+e);
                 continue;
             }
             System.out.println("Сontemplating the result :                  "+operation.ArgsAndSym(first, second, symbol));
@@ -50,7 +50,7 @@ public class Calculate {
             /**
              * We have a break, suspending the thread. For ease of perception...
              */
-            Thread.sleep(1000);
+            Thread.sleep(3000);
 /**
  *We are trying to "clear" the console by removing the text on the screen by 50 lines
  */
@@ -86,8 +86,7 @@ class Operation{
          */
         if (symbol.equals("-")) System.out.println("IF");
 
-        switch (symbol.trim(
-        )) {
+        switch (symbol.trim()) {
             case "-":
                 summ = first - second;
                 break;
@@ -112,6 +111,8 @@ class Operation{
         }
         return summ;
     }
+
+
 
     /**
      * Redefining the toString method
