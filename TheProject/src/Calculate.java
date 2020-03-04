@@ -2,19 +2,27 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-    /** 25.02.2020
-     *
+    /**
+     * @author demiurg
+     * @since 25.02.2020
+     * @version 2.0
+     *  Task is to implement a calculator. Realize :)
      */
 
-    public class Calculate {
-        //public static void main(String[] may) throws IOException, InterruptedException {
+public class Calculate {
         public static void main(String[] args) throws InterruptedException {
-            double first = 0;
-            double second = 0;
-            String exit = "no";
+
+            double first, second = 0;
             String symbol = null;
+            String exit = "no";
+            /**
+             * creating a class object
+             */
             Operation operation = new Operation();
             System.out.println("Calculate...  (c)demiurg  v 2.0");
+            /**
+             *
+             */
             while (!exit.equals("yes")){
                 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                 System.out.println("Enter the first argument.. ");
@@ -34,17 +42,20 @@ import java.io.InputStreamReader;
                 try {
                     second = Double.parseDouble(reader.readLine());
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println("Error... may bee..    "+e);
+continue;
                 }
-                System.out.println("I'm thinking... ");
-                Thread.sleep(900);
                 System.out.println("Сontemplating the result :                  "+operation.ArgsAndSym(first, second, symbol));
-                Thread.sleep(1000);
-                System.out.println("The End");
-                Thread.sleep(6000);
                 System.out.println();
+                /**
+                 * We have a break, suspending the thread. For ease of perception...
+                 */
+                Thread.sleep(1000);
+/**
+*We are trying to "clear" the console by removing the text on the screen by 50 lines
+ */
                 for (int i = 0; i < 50; ++i) System.out.println();
-                System.out.println("Exit is the calculation?                          (Help: yes/no)");
+                System.out.println("Exit is the calculation?                          (Help: yes/no or press Enter)");
                 try {
                     exit = reader.readLine();
                 } catch (IOException e) {
@@ -55,9 +66,25 @@ import java.io.InputStreamReader;
             }
         }
     }
-    class Operation{
+
+/**
+ * Class for performing mathematical operations. The idea is this, we submit arguments to the input and what needs to be done.
+ * At the output, we get the result of calculations.
+ */
+class Operation{
         private double summ;
+
+    /**
+     * @param first  value of the first argument
+     * @param second  value of the second argument
+     * @param symbol  a mathematical symbol that indicates to the object what calculation to perform
+     * @return returns the result of calculations
+     */
         public double ArgsAndSym(double first, double second, String symbol) {
+            /**
+             *  case
+             */
+            if (symbol.equals("-")) System.out.println("IF");
 
             switch (symbol.trim()) {
                 case "-":
@@ -85,9 +112,14 @@ import java.io.InputStreamReader;
             return summ;
         }
 
+        /**
+         * Redefining the toString method
+         * @return returns the result of calculations
+         */
+
         @Override
         public String toString() {
-            return "Result " + summ;
+            return " " + summ;
         }
     }
 
