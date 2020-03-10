@@ -5,21 +5,20 @@ import java.io.InputStreamReader;
 /**
  * @author demiurg
  * @since 25.02.2020
- * @version 2.0
+ * @version 2.1
  *  Task is to implement a calculator. Realize :)
  */
 
 public class Calculate {
     public static void main(String[] args) throws InterruptedException {
-
-        double first, second = 0;
+        double first, second;
         String symbol = null;
         String exit = "no";
         /**
          * creating a class object
          */
         Operation operation = new Operation();
-        System.out.println("Calculate...  (c)demiurg  v 2.0");
+        System.out.println("Calculate...  (c)demiurg  v 2.1");
         /**
          *
          */
@@ -58,10 +57,10 @@ public class Calculate {
             System.out.println("Exit is the calculation?                          (Help: yes/no or press Enter)");
             try {
                 exit = reader.readLine();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            for (int i = 0; i < 5; ++i) System.out.println();
+            for (int i = 0; i < 50; ++i) System.out.println();
 
         }
     }
@@ -73,7 +72,6 @@ public class Calculate {
  */
 class Operation{
     private double summ;
-
     /**
      * @param first  value of the first argument
      * @param second  value of the second argument
@@ -84,7 +82,9 @@ class Operation{
         /**
          *  case
          */
-        if (symbol.equals("-")) System.out.println("IF");
+      /*  if (symbol.equals("-")) {
+            System.out.println("IF");
+        }*/
 
         switch (symbol.trim()) {
             case "-":
@@ -106,11 +106,21 @@ class Operation{
                 break;
             case "^" : summ = Math.pow(first, second);
             default: summ = 0;
-                System.out.println("The mathematical symbol is not recognized: "+symbol);
-
+                System.out.println();
+                System.out.println("The mathematical symbol is not recognized: "+symbol+" !!!!!!!!!" );
+                System.out.println();
         }
         return summ;
     }
+  /*  private double subtraction(){
+        return f
+    }
+
+    Subtraction
+Addition
+Multiplication
+Division
+    */
 
 
 
