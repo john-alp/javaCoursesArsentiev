@@ -8,18 +8,18 @@ public class TestCalculate {
     Operation operation = new Operation();
     @Test
     public void MethodSubtractionShouldReturnZero() throws Exception {
-        Assert.assertEquals(0, operation.ArgsAndSym(ARG1, ARG2, "-"), DELTA);
+        Assert.assertEquals(0, operation.setArgsAndSym(ARG1, ARG2, "-"), DELTA);
     }
     @Test
         public void MethodAdditionShouldReturnSix() {
-        Assert.assertEquals(6, operation.ArgsAndSym(ARG1, ARG2, "+"), DELTA);
+        Assert.assertEquals(6, operation.setArgsAndSym(ARG1, ARG2, "+"), DELTA);
     }
     @Test
     public void MethodMultiplicationShouldReturnNine() {
-        Assert.assertEquals(9, operation.ArgsAndSym(ARG1, ARG2, "*"), DELTA);
+        Assert.assertEquals(9, operation.setArgsAndSym(ARG1, ARG2, "*"), DELTA);
     }
     @Test
     public void MethodDivisionShouldReturnOne(){
-    Assert.assertEquals(1,operation.ArgsAndSym(ARG1, ARG2, "/"),DELTA);
+    Assert.assertEquals(1,operation.setArgsAndSym(ARG1, ARG2, "/"),DELTA);
 }
 }
