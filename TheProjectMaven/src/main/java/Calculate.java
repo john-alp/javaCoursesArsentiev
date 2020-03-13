@@ -45,7 +45,7 @@ public class Calculate {
                 System.out.println("Something goes wrong... Repeat, please...     "+e);
                 continue;
             }
-            System.out.println("Contemplating the result :                  "+operation.setArgsAndSym(first, second, symbol));
+            System.out.println("Contemplating the result :                  "+operation.setArgsAndSymbol(first, second, symbol));
             System.out.println();
             /**
              *  We have a break, suspending the thread. For ease of perception...
@@ -81,7 +81,7 @@ class Operation{
      * @param symbol  a mathematical symbol that indicates to the object what calculation to perform
      * @return returns the result of calculations
      */
-    public double setArgsAndSym(double first, double second, String symbol) {
+    public double setArgsAndSymbol(double first, double second, String symbol) {
         this.first = first;
         this.second = second;
         this.symbol = symbol;
