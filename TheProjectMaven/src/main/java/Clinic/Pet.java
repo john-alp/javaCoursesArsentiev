@@ -24,6 +24,14 @@ public class Pet {
 
     @Override
     public String toString() {
-        return " " + petName + petType ;
+        return ", pet name: " + petName + ", pet type: " + petType ;
     }
-}
+
+//    @Override
+//    public String toString() {
+//        return "Pet{" +
+//                "petName='" + petName + '\'' +
+//                ", petType='" + petType + '\'' +
+//                '}';
+    }
+
