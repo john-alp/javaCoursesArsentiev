@@ -3,12 +3,12 @@ package Clinic;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.SQLOutput;
 import java.util.*;
 
 /**
  * @author  demiurg
  * @since  12.03.2020
+ * @version 1.9
  *
  *  Создать программу для обслуживания клиники домашних питомцев
  *
@@ -20,9 +20,16 @@ import java.util.*;
  * - Возможность проверки
  */
 public class ClinicWorks {
- Pet pet = new Pet(" "," ");
-
+ private Client client;
+ private Pet pet;
+ public ClinicWorks(){}
+ public ClinicWorks(Client client, Pet pet){
+     this.client = client;
+     this.pet = pet;
+ }
     List<Client> arrayList = new ArrayList<>();
+    List <ClinicWorks> arrayListClinicWorks = new ArrayList<>();
+    Map<Integer,Client> map = new TreeMap<>();
 
    public static void main(String[] args) throws IOException {
        ClinicWorks clinicWorks = new ClinicWorks();
@@ -57,13 +64,22 @@ public class ClinicWorks {
     public void addClient(){
 //         Client client = new Client(addInputScanner("Input name clients: "),
 //                        new Pet (addInputScanner("Input name pets: "), addInputScanner("Input type pets: ")));
-        Client client = new Client("Ta",new Pet("Bar","Cat"));
-
-        arrayList.add(client);
-    for (int i = 0; i < arrayList.size(); i++){
-        System.out.println(arrayList.get(i));
+//        Client client = new Client("Ta",new Pet("Bar","Cat"));
+      //  Client client = new Client("Ta",new Pet("Bar","Cat"));
+        ClinicWorks clinicWorks = new ClinicWorks(new Client("Tatiana"),new Pet("Varya","Cat"));
+        System.out.println("экзэмпляр класса: " + clinicWorks);
+        //        arrayList.add(client);
+//    for (int i = 0; i < arrayList.size(); i++){
+//        System.out.println(arrayList.get(i));
+//    }
+        arrayListClinicWorks.add(clinicWorks);
+ //       map.put(1,clinicWorks);
+  // for(ArrayList<> arrayList : arrayList1) {
+    for (int i = 0; i < arrayListClinicWorks.size(); i++){
+        System.out.println("from array:    " + arrayListClinicWorks.get(i));
     }
    }
+
    public void delClient(){
 
    }
@@ -107,4 +123,10 @@ public class ClinicWorks {
            return "Something went wrong.. " + e.getStackTrace();
        }
    }
+
+    @Override
+    public String toString() {
+        return " " + client + pet + arrayList + arrayListClinicWorks;
+    }
 }
+

@@ -5,10 +5,9 @@ public class Client {
    private String clientIdName;
    private Pet petName;
 
-   public Client(String clientIdName, Pet petName1){
+   public Client(String clientIdName){
        this.clientIdName = clientIdName;
-       this.petName = petName1;
-
+       this.petName = petName;
    }
 
  public void setClientIdName(String clientIdName){
@@ -22,7 +21,7 @@ public class Client {
  }
     @Override
     public String toString() {
-        return "Name client: " + clientIdName + petName;
+        return "Name clientC: " + clientIdName + petName;
     }
 
 //    @Override
