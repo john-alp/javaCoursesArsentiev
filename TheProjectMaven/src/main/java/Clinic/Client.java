@@ -4,7 +4,6 @@ package Clinic;
 public class Client {
    private String clientIdName;
    private Pet petName;
-   private Pet petType;
 
    public Client(String clientIdName, Pet petName){
        this.clientIdName = clientIdName;
@@ -27,10 +26,6 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "clientIdName='" + clientIdName + '\'' +
-                ", petName=" + petName.getPetName() +
-                ", petType="+petType+
-                '}';
+        return "Client: " + clientIdName + '\'' +  ", petName: " + petName.getPetName() + ", petType: " + petName.getPetType();
     }
 }

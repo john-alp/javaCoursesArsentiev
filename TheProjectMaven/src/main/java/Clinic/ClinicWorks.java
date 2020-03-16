@@ -64,14 +64,10 @@ public class ClinicWorks {
     public void addClient(){
         // Client client = new Client(getFromKeyboard("Input name clients: "),
           //              new Pet (getFromKeyboard("Input name pets: "), getFromKeyboard("Input type pets: ")));
-
-
         Client client = new Client("Ta",new Pet("Varya","Cat"));
         Client client1 = new Client("Da",new Pet("kroko","Dog"));
-
-//        System.out.println("экзэмпляр класса: " + clinicWorks);
                 arrayList.add(client);
-        arrayList.add(client1);
+                arrayList.add(client1);
 
     for (int i = 0; i < arrayList.size(); i++){
         System.out.println(arrayList.get(i));
@@ -89,17 +85,17 @@ public class ClinicWorks {
     }
    public void findClient(){
    ClinicWorks clinicWorks = new ClinicWorks();
-       for (int i = 0; i < arrayList.size(); i++){
-           String temp = clinicWorks.getFromKeyboard("What are we looking? ");
-           System.out.println("---");
-           System.out.println(temp + " " + arrayList.get(i).getClientIdName() + i)
-           ;
-           System.out.println("---");
+       String tempClientName = clinicWorks.getFromKeyboard("What are we looking? ");
 
-           if(temp.equals(arrayList.get(i).getClientIdName())){
-               System.out.println("The search is successful.." + arrayList.get(i));
+       for (int i = 0; i < arrayList.size(); i++){
+           if(tempClientName.equals(arrayList.get(i).getClientIdName())){
+               System.out.println("The search is successful.. \n " + " Client " + arrayList.get(i).getClientIdName() +
+                                                                   ". Pets " + arrayList.get(i).getPetName() +
+                                                              ". Pets type " + arrayList.get(i).getPetType() + ".");
+               return;
            }
        }
+       System.out.println("Sorry, name not found... ");
    }
    public void findPet() {
        ClinicWorks clinicWorks = new ClinicWorks();
@@ -134,9 +130,9 @@ public class ClinicWorks {
    public void showAll(){
       // ClinicWorks clinicWorks = new ClinicWorks();
        for (int i = 0; i < arrayList.size(); i++){
-           System.out.println("Client: " + arrayList.get(i).getClientIdName() +
-                            ", Pet name: " + arrayList.get(i).getPetName() +
-                            ", Pet type: " + arrayList.get(i).getPetType());
+//           System.out.println("Client: " + arrayList.get(i).getClientIdName() +
+//                            ", Pet name: " + arrayList.get(i).getPetName() +
+//                            ", Pet type: " + arrayList.get(i).getPetType());
            System.out.println(arrayList.get(i));
        }
    }
