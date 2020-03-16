@@ -20,21 +20,20 @@ import java.util.*;
  * - Возможность проверки
  */
 public class ClinicWorks {
- private Client client;
- private Pet pet;
- public ClinicWorks(){}
- public ClinicWorks(Client client, Pet pet){
-     this.client = client;
-     this.pet = pet;
- }
+    String exit = "no";
     List<Client> arrayList = new ArrayList<>();
-    List <ClinicWorks> arrayListClinicWorks = new ArrayList<>();
-    Map<Integer,Client> map = new TreeMap<>();
+//    ClinicWorks clinicWorks = new ClinicWorks();
 
-   public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
+        ClinicWorks clinicWorks = new ClinicWorks();
+        System.out.println("Pet clinic...  (c)demiurg");
+        clinicWorks.start();
+
+    }
+
+    public void start() throws IOException {
        ClinicWorks clinicWorks = new ClinicWorks();
-       System.out.println("Pet clinic...  (c)demiurg");
-       while (true) {
+       while (exit.equals("no")) {
            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
            System.out.println();
            System.out.println("Selected action: ");
@@ -55,41 +54,50 @@ public class ClinicWorks {
                break;
                case 7 : clinicWorks.showAll();
                break;
-               case 9 :
+               case 9 : exit = "yes";
+               break;
                default:
                    System.out.println("default");
            }
        }
    }
     public void addClient(){
-//         Client client = new Client(addInputScanner("Input name clients: "),
-//                        new Pet (addInputScanner("Input name pets: "), addInputScanner("Input type pets: ")));
-//        Client client = new Client("Ta",new Pet("Bar","Cat"));
-      //  Client client = new Client("Ta",new Pet("Bar","Cat"));
-        ClinicWorks clinicWorks = new ClinicWorks(new Client("Tatiana"),new Pet("Varya","Cat"));
-        System.out.println("экзэмпляр класса: " + clinicWorks);
-        //        arrayList.add(client);
-//    for (int i = 0; i < arrayList.size(); i++){
-//        System.out.println(arrayList.get(i));
-//    }
-        arrayListClinicWorks.add(clinicWorks);
- //       map.put(1,clinicWorks);
-  // for(ArrayList<> arrayList : arrayList1) {
-    for (int i = 0; i < arrayListClinicWorks.size(); i++){
-        System.out.println("from array:    " + arrayListClinicWorks.get(i));
+        // Client client = new Client(getFromKeyboard("Input name clients: "),
+          //              new Pet (getFromKeyboard("Input name pets: "), getFromKeyboard("Input type pets: ")));
+
+
+        Client client = new Client("Ta",new Pet("Varya","Cat"));
+        Client client1 = new Client("Da",new Pet("kroko","Dog"));
+
+//        System.out.println("экзэмпляр класса: " + clinicWorks);
+                arrayList.add(client);
+        arrayList.add(client1);
+
+    for (int i = 0; i < arrayList.size(); i++){
+        System.out.println(arrayList.get(i));
     }
    }
 
    public void delClient(){
-
+        ClinicWorks clinicWorks = new ClinicWorks();
+        for(int i = 0; i < arrayList.size(); i++){
+       if (clinicWorks.getFromKeyboard("Deleting the client: ").trim().equals(arrayList.get(i).getClientIdName())){
+           arrayList.remove(i);
+           System.out.println("The client was successfully deleted!");
+       }
    }
+    }
    public void findClient(){
-       ClinicWorks clinicWorks = new ClinicWorks();
+   ClinicWorks clinicWorks = new ClinicWorks();
        for (int i = 0; i < arrayList.size(); i++){
-           if(clinicWorks.getFromKeyboard("What are we looking? ").equals(arrayList.get(i).getClientIdName())){
-               System.out.println("Yes "+arrayList.get(i));
-           }else{
-               System.out.println("Sorry, not found...");
+           String temp = clinicWorks.getFromKeyboard("What are we looking? ");
+           System.out.println("---");
+           System.out.println(temp + " " + arrayList.get(i).getClientIdName() + i)
+           ;
+           System.out.println("---");
+
+           if(temp.equals(arrayList.get(i).getClientIdName())){
+               System.out.println("The search is successful.." + arrayList.get(i));
            }
        }
    }
@@ -100,18 +108,41 @@ public class ClinicWorks {
                System.out.println("The search is successful.." + arrayList.get(i).getPetName());
            }else{
                System.out.println("Sorry, not found...");
-               System.out.println("Test: " + arrayList.get(i).getPetName());
-
            }
  }
-   public void renameClient(){}
-   public void renamePet(){}
+   public void renameClient(){
+        ClinicWorks clinicWorks = new ClinicWorks();
+        for (int i = 0; i < arrayList.size(); i++){
+            if (clinicWorks.getFromKeyboard("find rename client: ").equals(arrayList.get(i).getClientIdName())){
+                arrayList.get(i).setClientIdName(getFromKeyboard("New name "));
+                //Client client = new Client(clinicWorks.getFromKeyboard("find successful.. new name "),new Pet(arrayList.get(i).getPetName(),arrayList.get(i).getPetType()));
+                //arrayList.remove(i);
+                //arrayList.add(client);
+                System.out.println("rename successful! ");
+                return;
+            }else{
+                System.out.println("not found ");
+                return;
+            }
+        }
+   }
+
+   public void renamePet(){
+
+   }
 
    public void showAll(){
-       ClinicWorks clinicWorks = new ClinicWorks();
+      // ClinicWorks clinicWorks = new ClinicWorks();
        for (int i = 0; i < arrayList.size(); i++){
-           System.out.println(arrayList);
+           System.out.println("Client: " + arrayList.get(i).getClientIdName() +
+                            ", Pet name: " + arrayList.get(i).getPetName() +
+                            ", Pet type: " + arrayList.get(i).getPetType());
+           System.out.println(arrayList.get(i));
        }
+   }
+   public void exit(String exit) {
+        System.out.println(exit);
+        this.exit = exit;
    }
 
    public String getFromKeyboard(String input) {
@@ -124,9 +155,6 @@ public class ClinicWorks {
        }
    }
 
-    @Override
-    public String toString() {
-        return " " + client + pet + arrayList + arrayListClinicWorks;
-    }
+
 }
 

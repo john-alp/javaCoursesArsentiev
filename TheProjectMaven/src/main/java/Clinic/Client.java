@@ -4,8 +4,9 @@ package Clinic;
 public class Client {
    private String clientIdName;
    private Pet petName;
+   private Pet petType;
 
-   public Client(String clientIdName){
+   public Client(String clientIdName, Pet petName){
        this.clientIdName = clientIdName;
        this.petName = petName;
    }
@@ -16,19 +17,20 @@ public class Client {
  public String getClientIdName(){
      return clientIdName;
  }
- public Pet getPetName(){
-       return petName;
+ public String getPetName(){
+       return petName.getPetName();
  }
+ public String getPetType(){
+       return petName.getPetType();
+ }
+
+
     @Override
     public String toString() {
-        return "Name clientC: " + clientIdName + petName;
+        return "Client{" +
+                "clientIdName='" + clientIdName + '\'' +
+                ", petName=" + petName.getPetName() +
+                ", petType="+petType+
+                '}';
     }
-
-//    @Override
-//    public String toString() {
-//        return "Client{" +
-//                "clientIdName='" + clientIdName + '\'' +
-//                ", petName=" + petName +
-//                '}';
-//    }
 }
