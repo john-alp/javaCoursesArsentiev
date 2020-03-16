@@ -56,7 +56,7 @@ public class ClinicWorks {
                break;
                case 9 : exit = "yes";
                break;
-               default:
+               default:     
                    System.out.println("default");
            }
        }
