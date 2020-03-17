@@ -56,7 +56,7 @@ public class ClinicWorks {
                break;
                case 9 : exit = "yes";
                break;
-               default:     
+               default:
                    System.out.println("default");
            }
        }
@@ -76,19 +76,20 @@ public class ClinicWorks {
 
    public void delClient(){
         ClinicWorks clinicWorks = new ClinicWorks();
+        String nameClient = clinicWorks.getFromKeyboard("Deleting the client: ").trim();
         for(int i = 0; i < arrayList.size(); i++){
-       if (clinicWorks.getFromKeyboard("Deleting the client: ").trim().equals(arrayList.get(i).getClientIdName())){
+       if (nameClient.equals(arrayList.get(i).getClientIdName())){
            arrayList.remove(i);
            System.out.println("The client was successfully deleted!");
        }
    }
     }
+    // case 3
    public void findClient(){
    ClinicWorks clinicWorks = new ClinicWorks();
-       String tempClientName = clinicWorks.getFromKeyboard("What are we looking? ");
-
+       String clientName = clinicWorks.getFromKeyboard("What are we looking? ");
        for (int i = 0; i < arrayList.size(); i++){
-           if(tempClientName.equals(arrayList.get(i).getClientIdName())){
+           if(clientName.equals(arrayList.get(i).getClientIdName())){
                System.out.println("The search is successful.. \n " + " Client " + arrayList.get(i).getClientIdName() +
                                                                    ". Pets " + arrayList.get(i).getPetName() +
                                                               ". Pets type " + arrayList.get(i).getPetType() + ".");
@@ -97,10 +98,12 @@ public class ClinicWorks {
        }
        System.out.println("Sorry, name not found... ");
    }
+   // case 
    public void findPet() {
        ClinicWorks clinicWorks = new ClinicWorks();
+       String clientName = clinicWorks.getFromKeyboard("Pet: What are we looking?");
        for (int i = 0; i < arrayList.size(); i++)
-           if(clinicWorks.getFromKeyboard("Pet: What are we looking?").equals(arrayList.get(i).getPetName())){
+           if(clientName.equals(arrayList.get(i).getPetName())){
                System.out.println("The search is successful.." + arrayList.get(i).getPetName());
            }else{
                System.out.println("Sorry, not found...");
